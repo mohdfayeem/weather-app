@@ -1,0 +1,178 @@
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+body{
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #ffecd2, #fcb69f);
+}
+.container{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.container .title{
+    margin: 1.5rem 0;
+    padding: 1rem;
+    color: #ffffff;
+    font-size: 28px;
+    text-align: center;
+}
+
+@media (max-width: 400px){
+    .container .title{
+        margin: .5rem 0;
+        padding: .5rem;
+        color: #ffffff;
+        font-size: 20px;
+        text-align: center;
+    }
+    .container .search-bar{
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+}
+.container .search-bar{
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    padding: .5rem;
+    background: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+    position: relative;
+}
+.container .search-bar .form-input{
+    margin: .5rem;
+    padding-left: 1rem;
+    width: auto;
+    height: 2rem;
+    border: #ff8d67 solid .1rem;
+    background: transparent;
+    border-radius: 8px;
+    position: relative;
+    color: #ff8d67;
+}
+.container .search-bar label{
+    position: absolute;
+    top: 1.4rem;
+    left: 1.8rem;
+    transition: .4s;
+    background: transparent;
+    color: #ff8d67;
+}
+.container .search-bar input.form-input:focus ~ label,
+.container .search-bar input.form-input:not([value=""]) ~ label{
+    top: .6rem;
+    left: 1.5rem;
+    padding: 0 .5rem;
+    transition: .4s;
+    background: #fafafa;
+    font-size: .8rem;
+}
+.container .search-bar .btn{
+    width: auto;
+    height: auto;
+    margin: .5rem;
+    padding: .5rem .8rem;
+    background: transparent;
+    border: #ff8d67 solid .1rem;
+    border-radius: 8px;
+    color: #ff8d67;
+    cursor: pointer;
+    position: relative;
+    transition: .4s;
+    z-index: 1;
+}
+.container .search-bar .btn::before{
+    width: 0;
+    height: 100%;
+    content: '';
+    position: absolute;
+    top: -0.1rem;
+    left: -0.1rem;
+    background: #ff8d67;
+    border: #ff8d67 solid .1rem;
+    border-radius: 8px;
+    transition: .4s;
+    z-index: -1;
+    animation: animate .4s linear;
+    opacity: 0;
+}
+.container .search-bar .btn:hover{
+    color: #fafafa;
+    z-index: 2;
+}
+.container .search-bar .btn:hover::before{
+    width: 100%;
+    transition: .4s;
+    animation: animate .4s linear;
+    color: #fafafa;
+    opacity: 1;
+}
+@keyframes animate{
+    0%{ width: 0; }
+    50%{ width: 50%; }
+    100%{ width: 100%; }
+}
+
+.container .notification{
+    flex-direction: column;
+    margin-bottom: 1rem;
+    padding: .5rem;
+    background: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+    position: relative;
+    color: #f56969;
+    display: none;
+}
+
+.container .weather-container{
+    margin-bottom: 3rem;
+    padding: 1rem 2rem;
+    width: auto;
+    height: 100%;
+    border-radius: 8px;
+    background: #fafafa;
+    color: #ff8d67;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .2);
+    text-align: center;
+}
+.container .weather-container h2.location{
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+    font-size: 28px;
+}
+.container .weather-container .weather-icon,
+.container .weather-container h3.temperatur,
+.container .weather-container h4{
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+    padding-top: .3rem;
+    padding-bottom: .3rem;
+}
+.container .weather-container h4{
+    clear: both;
+}
+.container .weather-container h4 span.min-temperatur{
+    margin-right: .5rem;
+    float: left;
+}
+.container .weather-container h4 span.max-temperatur{
+    margin-left: .5rem;
+    float: right;
+}
+.container .weather-container h3.description{
+    margin-top: 1rem;
+    padding-top: .5rem;
+    text-transform: capitalize;
+}
