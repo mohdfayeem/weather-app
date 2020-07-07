@@ -8,7 +8,7 @@ const descriptionElement = document.querySelector('.description');
 const notificationElement = document.querySelector('.notification');
 
 // APP Data
-const api_key = "1af8ecd1a0e78a5d3dead69db8421c11";
+const api_key = "{Your openweathermap API Key}";
 const api_call_Current = ``;
 
 // Function for get current location weather
